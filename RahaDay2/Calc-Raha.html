@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<style>
+    body{
+        background-color: rgb(163, 156, 156);
+    }
+    .one{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 500px;
+        background-color: rgb(217, 227, 224);
+    }
+    #operation{
+        margin: 10px;
+        width: 50px;
+        border-radius: 10px;
+    }
+    .two{
+        border-radius: 5px;
+        width: 100px;
+        margin: 10px;
+    }
+    .jas{
+        margin: 10px;
+        width: 300px;
+    }
+    #result{
+        background-color: rgb(124, 79, 85);
+        color:black;
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <div class="one">
+  <h1>Calculate</h1>
+
+    <input type="text" id="number1" class="Raha" placeholder="Number1">
+    <input type="text" id="number2" class="Raha" placeholder="Number2">
+  <select id="operation">
+    <option value="add">+</option>
+    <option value="subtract">-</option>
+    <option value="multiply">*</option>
+    <option value="divide">/</option>
+  </select>
+  <button onclick="calculate()" class="two">=</button>
+  <h4 id="result">Result: </h4>
+  </div>
+  <script>
+    function calculate() {
+      const number1 = parseFloat(document.getElementById('number1').value);
+      const number2 = parseFloat(document.getElementById('number2').value);
+      const operation = document.getElementById('operation').value;
+      let result;
+
+      switch (operation) {
+        case 'add':
+          result = number1 + number2;
+          break;
+        case 'subtract':
+          result = number1 - number2;
+          break;
+        case 'multiply':
+          result = number1 * number2;
+          break;
+        case 'divide':
+          result = number1 / number2;
+          break;
+        default:
+          result = "Invalid operation";
+      }
+
+      document.getElementById('result').innerText = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>
